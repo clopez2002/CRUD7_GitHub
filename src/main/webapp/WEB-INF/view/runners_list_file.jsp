@@ -9,7 +9,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- JSP taglibs -->
 <html>
 <head>
-    <title>Title</title>
+    <title>Title</title
+
+        <!-- le digo donde estan los resources, en este caso de estilos css -->
+
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilos.css"  />
+
 </head>
 <body>
 
@@ -26,7 +31,7 @@
 
             </tr>
 
-            <c:forEach var="runnersTEMP" items="${runnersAttributes}"> <!-- recorre cuantos clientes hay -->
+            <c:forEach var="runnersTEMP" items="${runnersAttributes}"> <!-- recorre cuantos runners hay -->
 
                 <tr>
                         <td>${runnersTEMP.nombre}</td>
