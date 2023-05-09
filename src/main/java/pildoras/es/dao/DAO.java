@@ -10,7 +10,7 @@ public interface DAO {
 
     public List<Runner> getRunnersList ();
 
-
+    void insertRunner(Runner theRunner);
 
 
 /*****************************************************************************/

@@ -2,6 +2,9 @@ package pildoras.es.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pildoras.es.controlador.entity.Runner;
 import pildoras.es.dao.DAO;
@@ -36,13 +39,27 @@ public class Controller {
 /*****************************************************************************/
 
     @RequestMapping("/insertRunnerURL")
-    public String showInsertRunnerMethod (){
+    public String showInsertRunnerForm (Model theModel){
+
+        // bind de datos de clientes
+
+        Runner theRunner = new Runner();
+
+        theModel.addAttribute("runnerAttribute", theRunner);
 
 
         return "insert_runner_page";
     }
 
 /*****************************************************************************/
+
+    @PostMapping("/InsertRunnerInsert")
+    public String showInsertRunnerMethod (@ModelAttribute("runnerAttribute") Runner theRunner){
+
+        daoClient.insertRunner (theRunner);
+
+        return "redirect:/runnersPage/runnersListPage";
+    }
 
 /*****************************************************************************/
 
