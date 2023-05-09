@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <table>
+    <table border="1">
 
             <tr>
 
@@ -46,7 +46,14 @@
 
             </c:forEach>
 
+
     </table>
+
+    <br/>
+
+        <!-- Boton que nos lleva a Insertar runner -->
+
+        <input type="button" value="Insert Runner" onclick="window.location.href='insertRunnerURL'; return false"/>
 
 
 
