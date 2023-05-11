@@ -10,9 +10,11 @@ public interface DAO {
 
     public List<Runner> getRunnersList ();
 
-    void insertRunner(Runner theRunner);
+    public void insertRunner(Runner theRunner);
 
-    Runner getOneRunner(int id);
+    public Runner getOneRunner(int id);
+
+    public void deleteOneRunner(int id);
 
 
 /*****************************************************************************/

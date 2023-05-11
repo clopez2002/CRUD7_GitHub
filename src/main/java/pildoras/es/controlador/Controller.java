@@ -28,7 +28,7 @@ public class Controller {
 
         // agregar los clientes al modelo
 
-        theModel.addAttribute("runnersAttributes", runnerList); // runnersAttributes es el atributo que usaremos siempre
+        theModel.addAttribute("runnerAttribute", runnerList); // runnersAttributes es el atributo que usaremos siempre
 
         return "runners_list_file";
     }
@@ -50,7 +50,7 @@ public class Controller {
 
 /*****************************************************************************/
 
-    @PostMapping("/InsertRunnerInsert")
+    @PostMapping("/insertRunner")
     public String showInsertRunnerMethod (@ModelAttribute("runnerAttribute") Runner theRunner){
 
         daoClient.insertRunner (theRunner);
@@ -69,7 +69,8 @@ public class Controller {
 
         // establecer el runner como atributo del modelo
 
-        theModel.addAttribute("runnersAttributes", theRunner);
+        theModel.addAttribute("runnerAttribute", theRunner);
+
 
         // enviar al formuario
 
@@ -78,8 +79,17 @@ public class Controller {
     }
 
 
-
 /*****************************************************************************/
+
+    @GetMapping("/deleteRunnerURL")
+    public String showDeleteMethod (@RequestParam("runnerId") int Id){
+
+        daoClient.deleteOneRunner (Id);
+
+        return "redirect:/runnersPage/runnersListPage";
+    }
+
+
 
 /*****************************************************************************/
 

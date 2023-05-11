@@ -31,19 +31,29 @@
                 <!-- Boton para modificar -->
                     <th>Update</th>
 
+                <!-- Boton para ELIMINAR -->
+
+                    <th>Delete</th>
 
 
 
             </tr>
 
-            <c:forEach var="runnersTEMP" items="${runnersAttributes}"> <!-- recorre cuantos runners hay -->
+            <c:forEach var="runnersTEMP" items="${runnerAttribute}"> <!-- recorre cuantos runners hay -->
+
+                <!-- Para hacer UPDATE de runner -->
 
                 <c:url var="updateRunnerLink" value="/runnersPage/updateRunnerURL">
-
-                    <!-- ahora le pasamos un parametro para indicarle que runner cliqeuamos -->
                     <c:param name="runnerId" value="${runnersTEMP.id}"/>
-
                 </c:url>
+
+
+                <!-- para hacer DELETE de un runner -->
+                <c:url var="deleteRunnerLink" value="/runnersPage/deleteRunnerURL">
+                    <c:param name="runnerId" value="${runnersTEMP.id}"/>
+                </c:url>
+
+
 
                 <tr>
                         <td>${runnersTEMP.nombre}</td>
@@ -54,6 +64,11 @@
 
                         <!-- aca ponemos boton para eliminar C/U de los registros -->
                         <td><a href="${updateRunnerLink}"><input type="button" value="Update"/></a> </td>
+
+
+
+                        <!-- aca ponemos el boton para eliminar en cada fila -->
+                        <td><a href="${deleteRunnerLink}"><input type="button" value="Delete" onclick="if(!(confirm('Desea eliminar definitivamente el Runner?'))) return false"/></a> </td>
 
                 </tr>
 
@@ -69,6 +84,8 @@
         <!-- Boton que nos lleva a Insertar runner -->
 
         <input type="button" value="Insert Runner" onclick="window.location.href='insertRunnerURL'; return false"/>
+
+
 
 
 

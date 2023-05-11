@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <form:form action="InsertRunnerInsert" modelAttribute="runnerAttribute" method="post">
+    <form:form action="insertRunner" modelAttribute="runnerAttribute" method="POST">
 
         <table>
 

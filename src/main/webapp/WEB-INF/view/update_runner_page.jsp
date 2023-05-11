@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <form:form action="InsertRunnerInsert" modelAttribute="runnersAttributes" method="post">
+    <form:form action="insertRunner" modelAttribute="runnerAttribute" method="POST">
 
         <form:hidden path="id"/>
 
@@ -42,12 +42,14 @@
                 <td><form:input path="email"/></td>
 
             </tr>
+
             </tr>
 
                 <td>DNI</td>
                 <td><form:input path="dni"/></td>
 
             </tr>
+
             </tr>
 
                 <td>Tiempo</td>
@@ -58,11 +60,11 @@
 
                 <!-- boton para submitir -->
 
-                <tr>
+            <tr>
 
-                    <td colspan="2"><input type="submit" value="Update"></td>
+                <td colspan="2"><input type="submit" value="Update"></td>
 
-                </tr>
+            </tr>
 
 
 
