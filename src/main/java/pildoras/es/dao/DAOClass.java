@@ -52,16 +52,32 @@ public class DAOClass implements DAO{
 
         // insertamos el runner
 
-        mySession.save(theRunner);
+        //mySession.save(theRunner);
+
+        mySession.saveOrUpdate(theRunner);
 
 
     }
 
 
-
-
-
 /*****************************************************************************/
+
+    @Override
+    @Transactional
+    public Runner getOneRunner(int id) {
+
+        // obtner la sesion
+
+        Session mySession = sessionFactory.getCurrentSession();
+
+        // obtener la informacion de runner seleccionad
+
+        Runner theRunner = mySession.get(Runner.class, id);
+
+        return theRunner;
+    }
+
+
 
 /*****************************************************************************/
 
